@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>Basic Layout</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="content/js/javascript.js"></script>
+	<link rel="stylesheet" href="content/css/style.css">
+
+  <style>
+
+      /* Style the tab */
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+
+      /* Style the buttons inside the tab */
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+
+  </style>
+
+  </head>
+
+  <body>
+
+
+<div class="tab">
+    <button class="tablinks active" onclick="openTab(event, 'General')">General</button>
+    <button class="tablinks" onclick="openTab(event, 'Task1')">Task1</button>
+    <button class="tablinks" onclick="openTab(event, 'Task2')">Task2</button>
+    <button class="tablinks" onclick="openTab(event, 'Task3')">Task3</button>
+    <button class="tablinks" onclick="openTab(event, 'Task4')">Task4</button>
+    <button class="tablinks" onclick="openTab(event, 'Task5')">Task5</button>
+    <button class="tablinks" onclick="openTab(event, 'Task6')">Task6</button>
+    <button class="tablinks" onclick="openTab(event, 'Task7')">Task5</button>
+    <button class="tablinks" onclick="openTab(event, 'Task8')">Task6</button>
+</div>
+
+<div id="id_task_div">
+    <hr width="100%" />
+    <div class="checkbox">
+        <h3>Allgemein</h3>
+        <input type="checkbox" id="id_task_enable" name="check_task_enable" value="Enable">
+        <label for="id_task_enable">Task Enable</label>
+        <input type="text" id="id_num_of_repeats" name="id_num_of_repeats">
+        <label for="id_num_of_repeats">Anzahl der Wiederholungen</label>
+    </div>
+    <hr width="100%" />
+    <div id="id_checkbox_system">
+        <h3>System</h3>
+        <select name="id_system" id="id_system">
+            <option value="axo'tae">axo'tae</option>
+            <option value="Pherson">Pherson</option>
+            <option value="Aquinelan Star">Aquinelan Star</option>
+            <option value="Trias">Trias</option>
+            <option value="Tesdach'koH">Tesdach'koH</option>
+			<option value="yunke">yunke</option>
+			<option value="beilum">beilum</option>
+			<option value="sivis">sivis</option>
+			<option value="sirpa">sirpa</option>
+			<option value="kronos">kronos</option>
+			<option value="jovia">jovia</option>
+			<option value="lindstrom">lindstrom</option>
+			<option value="beta-sektor">beta-sektor</option>
+			<option value="litzarr">litzarr</option>
+			<option value="mullins">mullins</option>
+			<option value="johbacor">johbacor</option>
+			<option value="dendroa">dendroa</option>
+			<option value="Mirror Cheron">Mirror Cheron</option>
+			<option value="Mirror Dhi'Ban">Mirror Dhi'Ban</option>
+        </select>
+        <label for="id_system">System</label>
+        <input type="text" id="id_flight_time" name="id_flight_time">
+        <label for="id_flight_time">Flugzeit in Sekunden</label>
+    </div>
+    <hr width="100%" />
+    <div>
+        <h3>Kampf</h3>
+        <input type="text" id="id_num_of_targets" name="id_num_of_targets">
+        <label for="id_num_of_targets">Anzahl der Ziele</label>
+        <input type="checkbox" id="id_target_battleship" name="id_target_battleship" value="Enable">
+        <label for="id_target_battleship">Kampfschiffe</label>
+        <input type="checkbox" id="id_target_explorer" name="id_target_explorer" value="Enable">
+        <label for="id_target_explorer">Forschungsschiffe</label>
+        <input type="checkbox" id="id_target_interceptor" name="id_target_interceptor" value="Enable">
+        <label for="id_target_interceptor">Interceptor</label>
+        <input type="checkbox" id="id_target_miner" name="id_target_miner" value="Enable">
+        <label for="id_target_miner">Miner</label>
+    </div>
+    <hr width="100%" />
+    <div id="id_div_optionen">
+        <h3>Optionen</h3>
+        <input type="checkbox" id="id_return_full_cargo" name="id_return_full_cargo" value="Enable">
+        <label for="id_return_full_cargo">zurück bei vollem Laderaum</label>
+        <input type="checkbox" id="id_closed_target" name="id_closed_target" value="Enable">
+        <label for="id_return_full_cargo">dichtestes Ziel</label>
+    </div>
+    <hr width="100%" />
+    <button onclick="SaveData(event)">Save</button>
+</div>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<div id="id_general_task" class="tabcontent">
+    <hr width="100%" />
+    <div class="checkbox">
+        <h3>Allgemein</h3>
+        <input type="text" id="id_max_runtime" name="id_max_runtime">
+        <label for="id_max_runtime">nach x Minuten schließen</label>
+    </div>
+    <hr width="100%" />
+    <div class="checkbox">
+        <h3>Start</h3>
+        <button id="id_btn_send_data" name="id_btn_send_data" onclick="StarteTasks()">Sart</button>
+        <label for="id_btn_send_data">Start Programm</label>
+    </div>
+    <hr width="100%" />
+    <div class="checkbox">
+        <h3>Konfigurationsdateien</h3>
+        <h5>Speichern</h5>
+        <input type="text" id="id_path" name="id_path">
+        <label for="id_path">Name</label>
+        <br>
+        <button id="id_bnt_save_data" name="id_bnt_save_data" onclick="sava_config_data()">Sart</button>
+        <label for="id_bnt_save_data">Save Config</label>
+        <br>
+        <h5>Laden</h5>
+        <input type="file" id="get_the_file" onchange="readText(event)">
+        <label for="get_the_file">Load Config File</label>
+    </div>
+
+</div>
+
+
+
+
+
+
+  </body>
+
+</html>

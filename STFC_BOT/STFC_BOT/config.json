@@ -1,0 +1,5 @@
+{
+    "mqtt_server_url" : "homedeb.local",
+    "mqtt_server_port" : 1883,
+    "mqtt_server_topic" : "stfc"
+}
